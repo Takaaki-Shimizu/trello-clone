@@ -26,6 +26,7 @@ const TaskCardTitle = () => {
       {isClick ? (
         <form onSubmit={handleSubmit}>
           <input
+            className="taskCardTitleInput"
             autoFocus
             type="text"
             onChange={handleChange}
