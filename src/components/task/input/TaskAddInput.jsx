@@ -1,7 +1,9 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 
 const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
   const handleSubmit = (e) => {
+    const taskId = uuid();
     e.preventDefault();
     if (inputText === "") {
       return;
@@ -9,8 +11,8 @@ const TaskAddInput = ({ inputText, setInputText, taskList, setTaskList }) => {
     setTaskList([
       ...taskList,
       {
-        id: taskList.length,
-        draggableId: `task-${taskList.length}`,
+        id: taskId,
+        draggableId: `task-${taskId}`,
         text: inputText,
       },
     ]);
