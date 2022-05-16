@@ -1,7 +1,24 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 
-const AddTaskCardButton = () => {
-  return <div></div>;
+const AddTaskCardButton = ({ taskCardsList, setTaskCardsList }) => {
+  const addTaskCard = () => {
+    const taskCardId = uuid();
+    setTaskCardsList([
+      ...taskCardsList,
+      {
+        id: taskCardId,
+        draggableId: `item${taskCardId}`,
+      },
+    ]);
+  };
+  return (
+    <div className="addTaskCardButtonArea">
+      <button className="addTaskCardBtutton" onClick={addTaskCard}>
+        +
+      </button>
+    </div>
+  );
 };
 
 export default AddTaskCardButton;
